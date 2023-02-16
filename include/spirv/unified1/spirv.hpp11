@@ -1141,9 +1141,16 @@ enum class Capability : unsigned {
     OptNoneINTEL = 6094,
     AtomicFloat16AddEXT = 6095,
     DebugInfoModuleINTEL = 6114,
+    JointMatrixINTEL = 6118,
     SplitBarrierINTEL = 6141,
     FPGAArgumentInterfacesINTEL = 6174,
     GroupUniformArithmeticKHR = 6400,
+    PackedJointMatrixINTEL = 6434,
+    JointMatrixWIInstructionsINTEL = 6435,
+    JointMatrixTF32ComponentTypeINTEL = 6436,
+    JointMatrixBF16ComponentTypeINTEL = 6437,
+    JointMatrixPackedInt2ComponentTypeINTEL = 6438,
+    JointMatrixPackedInt4ComponentTypeINTEL = 6439,
     Max = 0x7fffffff,
 };
 
@@ -1944,6 +1951,13 @@ enum class Op : unsigned {
     OpTypeStructContinuedINTEL = 6090,
     OpConstantCompositeContinuedINTEL = 6091,
     OpSpecConstantCompositeContinuedINTEL = 6092,
+    OpTypeJointMatrixINTEL = 6119,
+    OpJointMatrixLoadINTEL = 6120,
+    OpJointMatrixStoreINTEL = 6121,
+    OpJointMatrixMadINTEL = 6122,
+    OpJointMatrixSUMadINTEL = 6128,
+    OpJointMatrixUSMadINTEL = 6129,
+    OpJointMatrixUUMadINTEL = 6130,
     OpControlBarrierArriveINTEL = 6142,
     OpControlBarrierWaitINTEL = 6143,
     OpGroupIMulKHR = 6401,
@@ -2647,6 +2661,13 @@ inline void HasResultAndType(Op opcode, bool *hasResult, bool *hasResultType) {
     case Op::OpTypeStructContinuedINTEL: *hasResult = false; *hasResultType = false; break;
     case Op::OpConstantCompositeContinuedINTEL: *hasResult = false; *hasResultType = false; break;
     case Op::OpSpecConstantCompositeContinuedINTEL: *hasResult = false; *hasResultType = false; break;
+    case Op::OpTypeJointMatrixINTEL: *hasResult = true; *hasResultType = false; break;
+    case Op::OpJointMatrixLoadINTEL: *hasResult = true; *hasResultType = false; break;
+    case Op::OpJointMatrixStoreINTEL: *hasResult = false; *hasResultType = false; break;
+    case Op::OpJointMatrixMadINTEL: *hasResult = true; *hasResultType = false; break;
+    case Op::OpJointMatrixSUMadINTEL: *hasResult = true; *hasResultType = false; break;
+    case Op::OpJointMatrixUSMadINTEL: *hasResult = true; *hasResultType = false; break;
+    case Op::OpJointMatrixUUMadINTEL: *hasResult = true; *hasResultType = false; break;
     case Op::OpControlBarrierArriveINTEL: *hasResult = false; *hasResultType = false; break;
     case Op::OpControlBarrierWaitINTEL: *hasResult = false; *hasResultType = false; break;
     case Op::OpGroupIMulKHR: *hasResult = true; *hasResultType = true; break;

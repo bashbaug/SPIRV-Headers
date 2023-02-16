@@ -1141,9 +1141,16 @@ enum Capability {
     CapabilityOptNoneINTEL = 6094,
     CapabilityAtomicFloat16AddEXT = 6095,
     CapabilityDebugInfoModuleINTEL = 6114,
+    CapabilityJointMatrixINTEL = 6118,
     CapabilitySplitBarrierINTEL = 6141,
     CapabilityFPGAArgumentInterfacesINTEL = 6174,
     CapabilityGroupUniformArithmeticKHR = 6400,
+    CapabilityPackedJointMatrixINTEL = 6434,
+    CapabilityJointMatrixWIInstructionsINTEL = 6435,
+    CapabilityJointMatrixTF32ComponentTypeINTEL = 6436,
+    CapabilityJointMatrixBF16ComponentTypeINTEL = 6437,
+    CapabilityJointMatrixPackedInt2ComponentTypeINTEL = 6438,
+    CapabilityJointMatrixPackedInt4ComponentTypeINTEL = 6439,
     CapabilityMax = 0x7fffffff,
 };
 
@@ -1944,6 +1951,13 @@ enum Op {
     OpTypeStructContinuedINTEL = 6090,
     OpConstantCompositeContinuedINTEL = 6091,
     OpSpecConstantCompositeContinuedINTEL = 6092,
+    OpTypeJointMatrixINTEL = 6119,
+    OpJointMatrixLoadINTEL = 6120,
+    OpJointMatrixStoreINTEL = 6121,
+    OpJointMatrixMadINTEL = 6122,
+    OpJointMatrixSUMadINTEL = 6128,
+    OpJointMatrixUSMadINTEL = 6129,
+    OpJointMatrixUUMadINTEL = 6130,
     OpControlBarrierArriveINTEL = 6142,
     OpControlBarrierWaitINTEL = 6143,
     OpGroupIMulKHR = 6401,
@@ -2647,6 +2661,13 @@ inline void HasResultAndType(Op opcode, bool *hasResult, bool *hasResultType) {
     case OpTypeStructContinuedINTEL: *hasResult = false; *hasResultType = false; break;
     case OpConstantCompositeContinuedINTEL: *hasResult = false; *hasResultType = false; break;
     case OpSpecConstantCompositeContinuedINTEL: *hasResult = false; *hasResultType = false; break;
+    case OpTypeJointMatrixINTEL: *hasResult = true; *hasResultType = false; break;
+    case OpJointMatrixLoadINTEL: *hasResult = true; *hasResultType = false; break;
+    case OpJointMatrixStoreINTEL: *hasResult = false; *hasResultType = false; break;
+    case OpJointMatrixMadINTEL: *hasResult = true; *hasResultType = false; break;
+    case OpJointMatrixSUMadINTEL: *hasResult = true; *hasResultType = false; break;
+    case OpJointMatrixUSMadINTEL: *hasResult = true; *hasResultType = false; break;
+    case OpJointMatrixUUMadINTEL: *hasResult = true; *hasResultType = false; break;
     case OpControlBarrierArriveINTEL: *hasResult = false; *hasResultType = false; break;
     case OpControlBarrierWaitINTEL: *hasResult = false; *hasResultType = false; break;
     case OpGroupIMulKHR: *hasResult = true; *hasResultType = true; break;

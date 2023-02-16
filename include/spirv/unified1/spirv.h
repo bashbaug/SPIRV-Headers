@@ -1145,9 +1145,16 @@ typedef enum SpvCapability_ {
     SpvCapabilityOptNoneINTEL = 6094,
     SpvCapabilityAtomicFloat16AddEXT = 6095,
     SpvCapabilityDebugInfoModuleINTEL = 6114,
+    SpvCapabilityJointMatrixINTEL = 6118,
     SpvCapabilitySplitBarrierINTEL = 6141,
     SpvCapabilityFPGAArgumentInterfacesINTEL = 6174,
     SpvCapabilityGroupUniformArithmeticKHR = 6400,
+    SpvCapabilityPackedJointMatrixINTEL = 6434,
+    SpvCapabilityJointMatrixWIInstructionsINTEL = 6435,
+    SpvCapabilityJointMatrixTF32ComponentTypeINTEL = 6436,
+    SpvCapabilityJointMatrixBF16ComponentTypeINTEL = 6437,
+    SpvCapabilityJointMatrixPackedInt2ComponentTypeINTEL = 6438,
+    SpvCapabilityJointMatrixPackedInt4ComponentTypeINTEL = 6439,
     SpvCapabilityMax = 0x7fffffff,
 } SpvCapability;
 
@@ -1948,6 +1955,13 @@ typedef enum SpvOp_ {
     SpvOpTypeStructContinuedINTEL = 6090,
     SpvOpConstantCompositeContinuedINTEL = 6091,
     SpvOpSpecConstantCompositeContinuedINTEL = 6092,
+    SpvOpTypeJointMatrixINTEL = 6119,
+    SpvOpJointMatrixLoadINTEL = 6120,
+    SpvOpJointMatrixStoreINTEL = 6121,
+    SpvOpJointMatrixMadINTEL = 6122,
+    SpvOpJointMatrixSUMadINTEL = 6128,
+    SpvOpJointMatrixUSMadINTEL = 6129,
+    SpvOpJointMatrixUUMadINTEL = 6130,
     SpvOpControlBarrierArriveINTEL = 6142,
     SpvOpControlBarrierWaitINTEL = 6143,
     SpvOpGroupIMulKHR = 6401,
@@ -2651,6 +2665,13 @@ inline void SpvHasResultAndType(SpvOp opcode, bool *hasResult, bool *hasResultTy
     case SpvOpTypeStructContinuedINTEL: *hasResult = false; *hasResultType = false; break;
     case SpvOpConstantCompositeContinuedINTEL: *hasResult = false; *hasResultType = false; break;
     case SpvOpSpecConstantCompositeContinuedINTEL: *hasResult = false; *hasResultType = false; break;
+    case SpvOpTypeJointMatrixINTEL: *hasResult = true; *hasResultType = false; break;
+    case SpvOpJointMatrixLoadINTEL: *hasResult = true; *hasResultType = false; break;
+    case SpvOpJointMatrixStoreINTEL: *hasResult = false; *hasResultType = false; break;
+    case SpvOpJointMatrixMadINTEL: *hasResult = true; *hasResultType = false; break;
+    case SpvOpJointMatrixSUMadINTEL: *hasResult = true; *hasResultType = false; break;
+    case SpvOpJointMatrixUSMadINTEL: *hasResult = true; *hasResultType = false; break;
+    case SpvOpJointMatrixUUMadINTEL: *hasResult = true; *hasResultType = false; break;
     case SpvOpControlBarrierArriveINTEL: *hasResult = false; *hasResultType = false; break;
     case SpvOpControlBarrierWaitINTEL: *hasResult = false; *hasResultType = false; break;
     case SpvOpGroupIMulKHR: *hasResult = true; *hasResultType = true; break;

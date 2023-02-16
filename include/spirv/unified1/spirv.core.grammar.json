@@ -9044,6 +9044,104 @@
       "version" : "None"
     },
     {
+      "opname" : "OpTypeJointMatrixINTEL",
+      "class"  : "@exclude",
+      "opcode" : 6119,
+      "operands" : [
+        { "kind" : "IdResult" },
+        { "kind" : "IdRef",   "name" : "'Component Type'" },
+        { "kind" : "IdRef",   "name" : "'Row Count'" },
+        { "kind" : "IdRef",   "name" : "'Column Count'" },
+        { "kind" : "IdRef",   "name" : "'Scope'" },
+        { "kind" : "IdRef",   "name" : "'Use'" },
+        { "kind" : "IdRef",   "name" : "'Component Type Interpretation'", "quantifier" : "?" }
+      ],
+      "capabilities" : [ "JointMatrixINTEL" ],
+      "version" : "None"
+    },
+    {
+      "opname" : "OpJointMatrixLoadINTEL",
+      "class"  : "@exclude",
+      "opcode" : 6120,
+      "operands" : [
+        { "kind" : "IdResult" },
+        { "kind" : "IdRef",   "name" : "'Pointer'" },
+        { "kind" : "IdRef",   "name" : "'Stride'" },
+        { "kind" : "IdRef",   "name" : "'Layout'" },
+        { "kind" : "IdRef",   "name" : "'ScopeDeleteme'" },
+        { "kind" : "IdRef",   "name" : "'ShouldBeMemoryAccess'", "quantifier" : "?" }
+      ],
+      "capabilities" : [ "JointMatrixINTEL" ],
+      "version" : "None"
+    },
+    {
+      "opname" : "OpJointMatrixStoreINTEL",
+      "class"  : "@exclude",
+      "opcode" : 6121,
+      "operands" : [
+        { "kind" : "IdRef",   "name" : "'Pointer'" },
+        { "kind" : "IdRef",   "name" : "'Object'" },
+        { "kind" : "IdRef",   "name" : "'Stride'" },
+        { "kind" : "IdRef",   "name" : "'Layout'" },
+        { "kind" : "IdRef",   "name" : "'ScopeDeleteme'" },
+        { "kind" : "IdRef",   "name" : "'ShouldBeMemoryAccess'", "quantifier" : "?" }
+      ],
+      "capabilities" : [ "JointMatrixINTEL" ],
+      "version" : "None"
+    },
+    {
+      "opname" : "OpJointMatrixMadINTEL",
+      "class"  : "@exclude",
+      "opcode" : 6122,
+      "operands" : [
+        { "kind" : "IdResult" },
+        { "kind" : "IdRef",   "name" : "'A'" },
+        { "kind" : "IdRef",   "name" : "'B'" },
+        { "kind" : "IdRef",   "name" : "'C'" }
+      ],
+      "capabilities" : [ "JointMatrixINTEL" ],
+      "version" : "None"
+    },
+    {
+      "opname" : "OpJointMatrixSUMadINTEL",
+      "class"  : "@exclude",
+      "opcode" : 6128,
+      "operands" : [
+        { "kind" : "IdResult" },
+        { "kind" : "IdRef",   "name" : "'A'" },
+        { "kind" : "IdRef",   "name" : "'B'" },
+        { "kind" : "IdRef",   "name" : "'C'" }
+      ],
+      "capabilities" : [ "JointMatrixINTEL" ],
+      "version" : "None"
+    },
+    {
+      "opname" : "OpJointMatrixUSMadINTEL",
+      "class"  : "@exclude",
+      "opcode" : 6129,
+      "operands" : [
+        { "kind" : "IdResult" },
+        { "kind" : "IdRef",   "name" : "'A'" },
+        { "kind" : "IdRef",   "name" : "'B'" },
+        { "kind" : "IdRef",   "name" : "'C'" }
+      ],
+      "capabilities" : [ "JointMatrixINTEL" ],
+      "version" : "None"
+    },
+    {
+      "opname" : "OpJointMatrixUUMadINTEL",
+      "class"  : "@exclude",
+      "opcode" : 6130,
+      "operands" : [
+        { "kind" : "IdResult" },
+        { "kind" : "IdRef",   "name" : "'A'" },
+        { "kind" : "IdRef",   "name" : "'B'" },
+        { "kind" : "IdRef",   "name" : "'C'" }
+      ],
+      "capabilities" : [ "JointMatrixINTEL" ],
+      "version" : "None"
+    },
+    {
       "opname" : "OpControlBarrierArriveINTEL",
       "class"  : "Barrier",
       "opcode" : 6142,
@@ -14888,6 +14986,12 @@
           "version" : "None"
         },
         {
+          "enumerant" : "JointMatrixINTEL",
+          "value" : 6118,
+          "extensions" : [ "SPV_INTEL_joint_matrix" ],
+          "version" : "None"
+        },
+        {
           "enumerant" : "SplitBarrierINTEL",
           "value" : 6141,
           "extensions" : [ "SPV_INTEL_split_barrier" ],
@@ -14903,6 +15007,42 @@
           "enumerant" : "GroupUniformArithmeticKHR",
           "value" : 6400,
           "extensions" : [ "SPV_KHR_uniform_group_instructions"],
+          "version" : "None"
+        },
+        {
+          "enumerant" : "PackedJointMatrixINTEL",
+          "value" : 6434,
+          "extensions" : [ "SPV_INTEL_joint_matrix" ],
+          "version" : "None"
+        },
+        {
+          "enumerant" : "JointMatrixWIInstructionsINTEL",
+          "value" : 6435,
+          "extensions" : [ "SPV_INTEL_joint_matrix" ],
+          "version" : "None"
+        },
+        {
+          "enumerant" : "JointMatrixTF32ComponentTypeINTEL",
+          "value" : 6436,
+          "extensions" : [ "SPV_INTEL_joint_matrix" ],
+          "version" : "None"
+        },
+        {
+          "enumerant" : "JointMatrixBF16ComponentTypeINTEL",
+          "value" : 6437,
+          "extensions" : [ "SPV_INTEL_joint_matrix" ],
+          "version" : "None"
+        },
+        {
+          "enumerant" : "JointMatrixPackedInt2ComponentTypeINTEL",
+          "value" : 6438,
+          "extensions" : [ "SPV_INTEL_joint_matrix" ],
+          "version" : "None"
+        },
+        {
+          "enumerant" : "JointMatrixPackedInt4ComponentTypeINTEL",
+          "value" : 6439,
+          "extensions" : [ "SPV_INTEL_joint_matrix" ],
           "version" : "None"
         }
       ]

@@ -17179,7 +17179,7 @@
         {
           "enumerant" : "TensorFloat32RoundingINTEL",
           "value" : 6425,
-          "extensions" : [ "SPV_INTEL_tensor_float32_conversion"],
+          "extensions" : [ "SPV_INTEL_tensor_float32_rounding"],
           "version" : "None"
         },
         {

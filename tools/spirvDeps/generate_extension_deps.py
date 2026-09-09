@@ -2,15 +2,24 @@
 
 # TODO Copyright
 
+import argparse
 import json
+import os
+
+# The grammar file to use when none is specified on the command line.
+DEFAULT_GRAMMAR = os.path.join(
+    os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
+    'include', 'spirv', 'unified1', 'spirv.core.grammar.json')
 
 def main():
     import argparse
     parser = argparse.ArgumentParser(description='TODO')
 
-    parser.add_argument('--grammar', metavar='<path>',
-                        type=str, required=True,
-                        help='input JSON grammar file')
+    parser.add_argument('--grammar',
+                        metavar='<path>',
+                        type=str,
+                        default=DEFAULT_GRAMMAR,
+                        help='input JSON grammar file (default: %(default)s)')
     args = parser.parse_args()
 
     with open(args.grammar) as json_file:
